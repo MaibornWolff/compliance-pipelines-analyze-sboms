@@ -8,8 +8,8 @@ jobs:
   signing:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - env:
           MESSAGE: ${{ github.event.client_payload.message }}
-      - uses: actions/checkout@v4
-      - run: |
+        run: |
           echo $MESSAGE
