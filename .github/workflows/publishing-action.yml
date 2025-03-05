@@ -1,0 +1,15 @@
+name: publishing Analyze SBOM Action
+on:
+  repository_dispatch:
+    types:
+      - webhook
+
+jobs:
+  signing:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          MESSAGE: ${{ github.event.client_payload.message }}
+      - uses: actions/checkout@v4
+      - run: |
+          echo $MESSAGE
